@@ -1,22 +1,16 @@
 package controllers
 
 import (
-	"time"
-
-	models "web_app_fiber/models"
+	helpers "web_app_fiber/helpers"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/log"
 )
 
 func PingHandler(c *fiber.Ctx) error {
+	log.Info("Stop hitting me")
+	response := helpers.CreateResponsePayload(true, "Go Web Server is alive & running", nil)
 
-	payload := models.Payload{
-		Success:      true,
-		Message:      "Successfully received your message",
-		UtcTimestamp: time.Now().UTC().Format("2006-01-02 15:04:05 UTC"),
-		Data:         nil,
-	}
-
-	return c.JSON(payload)
+	return c.JSON(response)
 
 }
