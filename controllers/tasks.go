@@ -41,14 +41,15 @@ func GetTaskHandler(c *fiber.Ctx) error {
 
 		tasks = append(tasks, task)
 	}
-	payload := models.Payload{
-		Success:      true,
-		Message:      "Succesfully fetched tasks",
-		UtcTimestamp: utils.UtilsNowUtc(),
-		Data:         tasks,
-	}
 
-	return c.JSON(payload)
+	tasks{Columns: ["Id", "Title", "Description", "Completed", "Created At"]}
+
+	return c.JSON(
+		utils.CreateResponsePayload(
+			true,
+			"Succesfully fetched tasks",
+			tasks,
+		))
 
 }
 

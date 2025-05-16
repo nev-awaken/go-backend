@@ -16,9 +16,10 @@ type DbConfig struct {
 }
 
 type Task struct {
-	ID          int    `json:"id"`
-	Title       string `json:"title"`
-	Description string `json:"description"`
-	Completed   bool   `json:"completed"`
-	CreatedAt   string `json:"created_at"`
+	Columns     [5]string `json:"columns"`
+	ID          int       `json:"id"`
+	Title       string    `json:"title"`
+	Description string    `json:"description"`
+	Completed   bool      `json:"completed"`
+	CreatedAt   string    `json:"created_at"`
 }
